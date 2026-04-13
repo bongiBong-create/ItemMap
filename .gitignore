@@ -1,0 +1,41 @@
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.Python
+env/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 🧪 pytest / coverage (если потом добавишь тесты)
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 📦 data (ВАЖНО!)
+# если хочешь НЕ коммитить локальные данные
+data/data.json
+
+# logs (если появятся)
+*.log
+
+# mypy / type checkers
+.mypy_cache/
+.dmypy.json
+
+# temporary files
+*.swp
+*.swo
+
+# pip
+pip-log.txt
