@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def create_id():
-    return uuid.uuid4()
+    return str(uuid.uuid4())
 
 
 def get_datetime():

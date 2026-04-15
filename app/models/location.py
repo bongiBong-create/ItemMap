@@ -7,3 +7,5 @@ def create_location(name, description):
         "name": name,
         "description": description
     }
+
+

@@ -1,1 +1,3 @@
-path_to_data = "data/data.json"
+from pathlib import Path
+
+path_to_data = Path("data/data.json")
