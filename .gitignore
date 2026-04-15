@@ -27,5 +27,5 @@ data.json
 
 *.swp
 *.swo
-
+*.txt
 pip-log.txt

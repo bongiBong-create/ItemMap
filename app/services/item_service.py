@@ -3,11 +3,11 @@ from app.storage.storage import save_data
 
 
 def add_item(data, name, location_id, aliases, description):
-    location = next((location for location in data["locations"] if location["id"] == location_id), None)
+    location = next((location for location in data["locations"] if location["id"] == location_id),
+                    None)
 
     if location is None:
-        print("Такой локации не существует")
-        return None
+        raise ValueError("Location not found")
 
     item = create_item(name, location_id, aliases, description)
     data["items"].append(item)
@@ -16,17 +16,14 @@ def add_item(data, name, location_id, aliases, description):
     return item
 
 
-def remove_item(data, id):
-    data["items"] = [item for item in data["items"] if item["id"] != id]
+def remove_item(data, item_id):
+    data["items"] = [item for item in data["items"] if item["id"] != item_id]
     save_data(data)
-    print("Предмет удален")
+
+    return id
 
 
-def get_item(data, id):
-    item = next((item for item in data["items"] if item["id"] == id), None)
+def get_item(data,  item_id):
+    search_item = next((item for item in data["items"] if item["id"] == item_id), None)
 
-    return item
-
-def get_items(data):
-    for item in data["items"]:
-        print(item)
+    return search_item
