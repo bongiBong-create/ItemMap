@@ -17,7 +17,7 @@ def load_data():
         data = {
             "locations": [],
             "items": [],
-            "meta": []
+            "meta": {}
         }
 
         save_data(data)
