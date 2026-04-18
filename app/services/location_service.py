@@ -22,9 +22,4 @@ def get_location_by_id(data, location_id):
 def get_location_by_name(data, name):
     location = next((location for location in data["locations"] if location["name"] == name),
                     None)
-
-    if location is None:
-        new_location = add_location(data, name, description="")
-        return new_location
-
     return location
