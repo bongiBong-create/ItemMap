@@ -1,25 +1,14 @@
-from app.models.location import create_location
-from app.storage.storage import save_data
+from app.repository import location_repo
 
 
-def add_location(data, name, description):
-    location = create_location(name, description)
-    data["locations"].append(location)
-    save_data(data)
+def create_location(name, description):
+    existing = location_repo.get_location_by_name(name)
 
-    return location
+    if existing:
+        raise ValueError("Локация уже существует")
 
-
-def get_locations(data):
-    return data["locations"]
+    return location_repo.create_location(name, description)
 
 
-def get_location_by_id(data, location_id):
-    return next((location for location in data["locations"] if location["id"] == location_id),
-                None)
-
-
-def get_location_by_name(data, name):
-    location = next((location for location in data["locations"] if location["name"] == name),
-                    None)
-    return location
+def get_locations():
+    return location_repo.get_locations()
